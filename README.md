@@ -15,7 +15,7 @@ Informasi Untuk Rekan - Rekan FT-Teknik Sipil
 =============================================
 
 Repositori ini adalah gubahan dari repositori ftisunpar/skripsi yang berisi template skripsi milik FTIS.
-Jika ingin menggunakan dokumen ini, silahkan menghubungi dosen FTIS yang bersangkutan.
+Jika ingin menggunakan dokumen ini, **silahkan menghubungi dosen FTIS yang bersangkutan**.
 Sampai dokumen README ini dibuat, dosen yang bersangkutan adalah : Lionov Wiratma, Ph.D <<lionov@unpar.ac.id>>
 
 Gubahan ini dilakukan oleh : Arif Yunando S (2017410211) <<arifyunando@gmail.com>> 
