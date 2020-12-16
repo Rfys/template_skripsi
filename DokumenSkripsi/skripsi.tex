@@ -44,7 +44,8 @@
 
 \documentclass[11pt,a4paper,twoside,openright,notitlepage]{report}  
 \usepackage[bahasa]{babel}%bahasa indonesia
-\usepackage{lmodern}%font latin modern
+%\usepackage{lmodern}%font latin modern
+\usepackage{mathptmx} %font Times Roman
 \usepackage[T1]{fontenc}%encoding
 \usepackage[inner=2.5cm,outer=2cm,top=2.5cm,bottom=2.5cm]{geometry}%margin
 \usepackage{microtype}%mencegah underfull
@@ -106,13 +107,6 @@
 	}{ 
 		\nottoggle{okNPM}{
 			\hypersetup{pdfauthor={#2 - #1}}
-			\StrChar{#2}{1}[\vnewnpm]
-			\IfEq{\vnewnpm}{6}{\StrChar{#2}{3}[\vprodiN]}{\StrChar{#2}{6}[\vprodiN]} 
-			%\StrChar{#2}{3}[\vprodiN]
-			\IfStrEqCase{\vprodiN}{
-				{1}{\vmat} {2}{\vfis} {3}{\vtif}
-				{6}{\vmat} {7}{\vfis} {8}{\vtif}
-			[]}
 			\hypersetup{pdfsubject={\vprodiINA}}
 		}{}
 	}
@@ -200,8 +194,8 @@
 \renewcommand{\abstractnamefont}{\bf \MakeUppercase}
 
 %font
-\normalfont %aktivasi default font untuk latin modern
-\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{} %scschape comp modern untuk latin modern
+\normalfont %aktivasi default font
+%\DeclareFontShape{T1}{lmr}{bx}{sc}{<->ssub*cmr/bx/sc}{} %scschape comp modern untuk latin modern
 
 %setting daftar isi dan daftar lainnya
 \cftsetpnumwidth{25pt}	% perbaikan untuk halaman daftar isi romawi yg overfull
@@ -236,15 +230,14 @@
 	\linenumber{yes}\linespacing{double} 
 	\gambar{yes}\tabel{no}\kode{yes} 
 	\bab{1,2}\lampiran{A} 
-	\namanpm{Lionov}{1997730020}\tanggal{1}{8}{2002}
-	\pembimbing{\LNV}{}\penguji{\VAN}{\HUH}
-	\judulINA{Balonku Ada Lima}
-	\judulENG{The Five Baboons}
+	\namanpm{Arif Yunando Sunanhadikusuma}{2017410211}\tanggal{9}{5}{2020}
+	\pembimbing{\ASW}{}
+	\judulINA{Topi Saya Bundar}
+	\judulENG{My Round Hat}
 	\abstrakINA{\lipsum[6]}
 	\abstrakENG{\lipsum[7]} 
 	\kunciINA{Kunci, Kunci-kunci, Kata, Kata-kata, Indonesia}
 	\kunciENG{Key, Keys, Word, Words, English}
-	\untuk{Odin}
 	\prakata{\lipsum[1-5]}
 	\pgfplotsset{compat=newest}
 	\ttd{kosong}
@@ -269,18 +262,18 @@
 		\vstaINA\\\vspace{1.5cm}
 		\vjudulINA\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{3.5cm}
-		\uppercase{\vnama}\\\vspace{0.1cm}
+		\MakeUppercase{\vnama}\\\vspace{0.1cm}
 		NPM: \vnpm\\\vspace{1cm}
 			\ifdefempty{\vpembs}
 			{\begin{center} Pembimbing : {\vpembu}\ \\\end{center}}
-			{\begin{center}Pembimbing : \vpembu \\ \vspace{0.1cm} 
-						Ko-Pembimbing : \vpembs\ \end{center}}
+			{\begin{center}PEMBIMBING : \vpembu \\ \vspace{0.1cm} 
+						KO-PEMBIMBING : \vpembs\ \end{center}}
 		\vfill
 		UNIVERSITAS KATOLIK PARAHYANGAN\\
 		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
 		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
 		BANDUNG\\
-		\vbulan \vtahun 
+		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
 
@@ -292,18 +285,18 @@
 		\vstaINA\\\vspace{1.5cm}
 		\vjudulINA\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{3.5cm}
-		\uppercase{\vnama}\\\vspace{0.1cm}
+		\MakeUppercase{\vnama}\\\vspace{0.1cm}
 		NPM: \vnpm\\\vspace{1cm}
 			\ifdefempty{\vpembs}
 			{\begin{center} Pembimbing : {\vpembu}\ \\\end{center}}
-			{\begin{center}Pembimbing : \vpembu \\ \vspace{0.1cm} 
-						Ko-Pembimbing : \vpembs\ \end{center}}
+			{\begin{center}PEMBIMBING : \vpembu \\ \vspace{0.1cm} 
+						KO-PEMBIMBING : \vpembs\ \end{center}}
 		\vfill
 		UNIVERSITAS KATOLIK PARAHYANGAN\\
 		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
 		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
 		BANDUNG\\
-		\vbulan \vtahun 
+		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
 
@@ -315,7 +308,7 @@
 		\vstaINA\\\vspace{1.5cm}
 		\vjudulINA\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{2cm}
-		\uppercase{\vnama}\\\vspace{0.1cm}
+		\MakeUppercase{\vnama}\\\vspace{0.1cm}
 		NPM: \vnpm\\\vspace{0.5cm}
 		\begin{center}
 			BANDUNG, \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm}
@@ -325,13 +318,13 @@
 			    {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\}
 			    \vpembu\end{center}}
 			{\begin{minipage}[b]{0.475\textwidth}
-				 \begin{center}Pembimbing Utama \\ 
+				 \begin{center}Pembimbing \\ 
 				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
 				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\} 
 				 \vpembu\end{center}
 			 \end{minipage} \hspace{0.3cm}
 			 \begin{minipage}[b]{0.475\textwidth}
-				 \begin{center} Pembimbing Pendamping \\
+				 \begin{center} Ko-Pembimbing \\
 				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
 				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembs}\ \end{Form}\\}
 				 \vpembs\end{center}
@@ -343,7 +336,7 @@
 		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
 		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
 		BANDUNG\\
-		\vbulan \vtahun 
+		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
 	
@@ -355,12 +348,12 @@
 	Saya yang bertandatangan di bawah ini, menyatakan bahwa: \\\vspace{0.2cm}
 	Nama Lengkap : \vnama \\\vspace{0.2cm}
 	NPM \hspace{1.65cm}: \vnpm \\\vspace{0.2cm}
-Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah karya ilmiah yang bebas dari plagiat. Jika kemudian hari terbukti terdapat plagiat dalam skripsi ini, maka saya bersedia menerima sanksi sesuai dengan peraturan perundang - undangan yang berlaku. \\
+Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah karya ilmiah yang bebas dari plagiat. Jika kemudian hari terbukti terdapat plagiat dalam skripsi ini, maka saya bersedia menerima sanksi sesuai dengan peraturan perundang - undangan yang berlaku. \\
 	\vspace{0.25cm}
 	\end{flushleft}
 	
 	\begin{flushright}	
-		Bandung,\vbulan\ \vtahun \\
+		Bandung,\ \vbulan\ \vtahun \\
 		\IfStrEq{\vttd}{digital}
 		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
 		    {\IfStrEq{\vttd}{gambar}
@@ -393,7 +386,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah kary
 		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
 		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
 		BANDUNG\\
-		\vbulan \vtahun 
+		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
 	\renewcommand{\abstractname}{Abstrak} 
@@ -415,7 +408,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah kary
 		FACULTY OF ENGINEERING DEPARTMENT OF CIVIL ENGINEERING\\
 		\small (Accreditated by SK BAN-PT Number:1788/SK/BAN-PT/Akred/S/VII/2018)\\
 		BANDUNG\\
-		\vbulan \vtahun 
+		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
 	\renewcommand{\abstractname}{Abstract}
@@ -432,7 +425,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah kary
 	\addcontentsline{toc}{chapter}{Kata Pengantar}
 	\vprakata \vspace{0.25cm}
 	\begin{flushright}	
-		Bandung,\vbulan\ \vtahun \\
+		Bandung,\ \vbulan\ \vtahun \\
 		\IfStrEq{\vttd}{digital}
 		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
 		    {\IfStrEq{\vttd}{gambar}
