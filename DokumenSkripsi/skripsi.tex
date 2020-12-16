@@ -118,6 +118,7 @@
 	\newcommand{\vtahun}{\rtext{#3}} \IfInteger{#3}{\renewcommand{\vtahun}{#3}}{}
 	\newcommand{\vbulan}{\rtext{#2}}
 	\IfStrEqCase{#2}{%ubah angka bulan menjadi kata
+		{0}{\renewcommand{\vbulan}{<<bulan>>}}
 		{1}{\renewcommand{\vbulan}{Januari}}	{2}{\renewcommand{vbulan}{Februari}}	
 		{3}{\renewcommand{\vbulan}{Maret}}		{4}{\renewcommand{vbulan}{April}}	
 		{5}{\renewcommand{\vbulan}{Mei}}		{6}{\renewcommand{vbulan}{Juni}}		
@@ -311,7 +312,7 @@
 		\MakeUppercase{\vnama}\\\vspace{0.1cm}
 		NPM: \vnpm\\\vspace{0.5cm}
 		\begin{center}
-			BANDUNG, \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm}
+			BANDUNG, \vtanggal\ \MakeUppercase{\vbulan}\ \vtahun \\ \vspace{0.5cm}
 			\ifdefempty{\vpembs}
 			{\begin{center} Pembimbing\\ 
 			    \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}			    
