@@ -1,7 +1,8 @@
 %% skripsi.tex
-%% Copyright 2011-2020 Lionov W.
+%% Copyright 2011-2020 Lionov
 %%
-%% This file is part of the 'Template Skripsi/Tugas Akhir FTIS UNPAR'
+%% This file is part of the 'Template Skripsi/Tugas Akhir FT UNPAR'
+%% A project forked from 'Template Skripsi/Tugas Akhir FTIS UNPAR'
 %%
 %% This work may be distributed under the conditions of 
 %% the LaTeX Project Public License, either version 1.3 of this license or
@@ -12,10 +13,10 @@
 %%
 %% This work has the LPPL maintenance status `maintained'.
 %% 
-%% The Current Maintainer of this work is Lionov W (lionov@unpar.ac.id) 
+%% The Current Maintainer of this work is Arif Y (arifyunando@gmail.com) 
 %_____________________________________________________________________________
 %=============================================================================
-% skripsi.tex v13 (24-07-2020) dibuat oleh Lionov - Informatika FTIS UNPAR 
+% skripsi.tex v13_ft (24-07-2020) dibuat oleh Arif - FT UNPAR 
 % 
 % Ini adalah file utama (skripsi.tex), berisi perintah-perintah yang khusus 
 % dibuat untuk template ini
@@ -33,6 +34,11 @@
 %   - pemindahan file compj.bst dan digsig.sty ke folder .sty
 %   - format kode program di bab dan penambahan kotak untuk kode program
 %   - penambahan daftar notasi
+%
+% Perubahan pada versi 13_ft:
+%   - Perubahan format judul menjadi format FT
+%   - Perubahan format penulisan abstrak
+%   - Menghilangkan bagian persembahan
 %_____________________________________________________________________________
 %=============================================================================
 
@@ -79,33 +85,13 @@
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
 
 %default data prodi
-\newcommand{\vprodiINA}{{\small <<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
-\newcommand{\vprodiENG}{\rtext{<<MATHEMATICS/PHYSICS/INFORMATICS>>}}
-\newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
-\newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
+\newcommand{\vstaINA}{SKRIPSI} 
+\newcommand{\vstaENG}{UNDERGRADUATE THESIS}
+\newcommand{\vprodiINA}{TEKNIK SIPIL}
+\newcommand{\vprodiENG}{CIVIL ENGINEERING}
 \newcommand{\vkaprodi}{<<Ketua Program Studi>>}
-  
-%data kaprodi 
-\newcommand{\kaprodiMAT}{}
-\newcommand{\kaprodiFIS}{}
-\newcommand{\kaprodiTIF}{}
 
 \include{dosen}%dosen.tex
-
-%perubahan data prodi
-\newcommand{\vmat}{
-\renewcommand{\vprodiINA}{MATEMATIKA} \renewcommand{\vprodiENG}{MATHEMATICS} 
-\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{FINAL PROJECT} 
-\renewcommand{\vkaprodi}{\kaprodiMAT}}
-\newcommand{\vfis}{
-\renewcommand{\vprodiINA}{FISIKA} \renewcommand{\vprodiENG}{PHYSICS} 
-\renewcommand{\vstaINA}{TUGAS AKHIR} \renewcommand{\vstaENG}{FINAL PROJECT} 
-\renewcommand{\vkaprodi}{\kaprodiFIS}}
-\newcommand{\vtif}{
-\renewcommand{\vprodiINA}{TEKNIK INFORMATIKA}\renewcommand{\vprodiENG}{INFORMATICS} 
-\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{UNDERGRADUATE THESIS} 
-\renewcommand{\vkaprodi}{\kaprodiTIF}
-}
 
 %data mahasiswi/a dan prodi 
 \newcommand{\namanpm}[2]{%
@@ -137,20 +123,13 @@
 	\newcommand{\vtanggal}{\rtext{#1}} \IfInteger{#1}{\renewcommand{\vtanggal}{#1}}{}
 	\newcommand{\vtahun}{\rtext{#3}} \IfInteger{#3}{\renewcommand{\vtahun}{#3}}{}
 	\newcommand{\vbulan}{\rtext{#2}}
-	\newcommand{\vbulanlc}{\rtext{#2}}
 	\IfStrEqCase{#2}{%ubah angka bulan menjadi kata
-		{1}{\renewcommand{\vbulan}{JANUARI}}	{2}{\renewcommand{\vbulan}{FEBRUARI}}	
-		{3}{\renewcommand{\vbulan}{MARET}}		{4}{\renewcommand{\vbulan}{APRIL}}	
-		{5}{\renewcommand{\vbulan}{MEI}}		{6}{\renewcommand{\vbulan}{JUNI}}		
-		{7}{\renewcommand{\vbulan}{JULI}}		{8}{\renewcommand{\vbulan}{AGUSTUS}}	
-		{9}{\renewcommand{\vbulan}{SEPTEMBER}}	{10}{\renewcommand{\vbulan}{OKTOBER}}
-		{11}{\renewcommand{\vbulan}{NOVEMBER}}	{12}{\renewcommand{\vbulan}{DESEMBER}}
-		{1}{\renewcommand{\vbulanlc}{Januari}}		{2}{\renewcommand{vbulanlc}{Februari}}	
-		{3}{\renewcommand{\vbulanlc}{Maret}}		{4}{\renewcommand{vbulanlc}{April}}	
-		{5}{\renewcommand{\vbulanlc}{Mei}}			{6}{\renewcommand{vbulanlc}{Juni}}		
-		{7}{\renewcommand{\vbulanlc}{Juli}}			{8}{\renewcommand{vbulanlc}{Agustus}}	
-		{9}{\renewcommand{\vbulanlc}{September}}	{10}{\renewcommand{vbulanlc}{Oktober}}
-		{11}{\renewcommand{\vbulanlc}{November}}	{12}{\renewcommand{vbulanlc}{Desember}}
+		{1}{\renewcommand{\vbulan}{Januari}}	{2}{\renewcommand{vbulan}{Februari}}	
+		{3}{\renewcommand{\vbulan}{Maret}}		{4}{\renewcommand{vbulan}{April}}	
+		{5}{\renewcommand{\vbulan}{Mei}}		{6}{\renewcommand{vbulan}{Juni}}		
+		{7}{\renewcommand{\vbulan}{Juli}}		{8}{\renewcommand{vbulan}{Agustus}}	
+		{9}{\renewcommand{\vbulan}{September}}	{10}{\renewcommand{vbulan}{Oktober}}
+		{11}{\renewcommand{\vbulan}{November}}	{12}{\renewcommand{vbulan}{Desember}}
 	[]}
 }
 
@@ -381,7 +360,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah kary
 	\end{flushleft}
 	
 	\begin{flushright}	
-		Bandung,\vbulanlc\ \vtahun \\
+		Bandung,\vbulan\ \vtahun \\
 		\IfStrEq{\vttd}{digital}
 		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
 		    {\IfStrEq{\vttd}{gambar}
@@ -453,7 +432,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA adalah kary
 	\addcontentsline{toc}{chapter}{Kata Pengantar}
 	\vprakata \vspace{0.25cm}
 	\begin{flushright}	
-		Bandung,\vbulanlc\ \vtahun \\
+		Bandung,\vbulan\ \vtahun \\
 		\IfStrEq{\vttd}{digital}
 		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
 		    {\IfStrEq{\vttd}{gambar}
