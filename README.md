@@ -22,3 +22,10 @@ Untuk pertanyaan seputar template, dapat menghubungi email saya seperti yang ter
 
 Untuk peraturan mengenai formating lebih jelas. Silahkan merujuk pada dokumen
 "Standar Operasional Prosedur dan Pedoman Penulisan Skripsi" oleh Prodi Teknik Sipil yang terdapat pada website TS Unpar
+
+Further Development
+=====================
+
+1. Ganti dummy text dengan isi yang lebih relevan
+2. Ganti header style
+3. Ganti page numbering system
