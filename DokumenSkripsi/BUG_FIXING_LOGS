@@ -1,6 +1,0 @@
-1. Babel : Language Bahasa not found / error
-	install texlive-lang-other <ubuntu>
-	delete intermediate file bernama skripsi.aux
-	restart skripsi.tex and recompile
-
-

@@ -16,7 +16,7 @@
 %% The Current Maintainer of this work is Arif Y (arifyunando@gmail.com) 
 %_____________________________________________________________________________
 %=============================================================================
-% skripsi.tex v13_ft (24-07-2020) dibuat oleh Arif - FT UNPAR 
+% skripsi.tex v1_ft (17-12-2020) dibuat oleh Arif - FT UNPAR 
 % 
 % Ini adalah file utama (skripsi.tex), berisi perintah-perintah yang khusus 
 % dibuat untuk template ini
@@ -42,44 +42,56 @@
 %_____________________________________________________________________________
 %=============================================================================
 
+%PREAMBULE
+
 \documentclass[11pt,a4paper,twoside,openright,notitlepage]{report}  
 \usepackage[bahasa]{babel}%bahasa indonesia
-%\usepackage{lmodern}%font latin modern
-\usepackage{mathptmx} %font Times Roman
-\usepackage[T1]{fontenc}%encoding
-\usepackage[inner=2.5cm,outer=2cm,top=2.5cm,bottom=2.5cm]{geometry}%margin
-\usepackage{microtype}%mencegah underfull
-\usepackage{lipsum}%untuk dummy text
-\usepackage{abstract}%manipulasi abstract
-\usepackage{tocloft}%format daftar isi 
-\usepackage{tocbibind}% menambah kata pengantar, daftar isi, gambar, tabel ke daftasr isi
-\usepackage{fancyhdr}%mengubah tampilan header & footer
-\usepackage{titlesec}% mengubah tamnpilan judul bab
-\usepackage{float} %penempatan gambar di tempat yg seharusnya 
+%\usepackage{lmodern}     %font latin modern
+\usepackage{mathptmx}     %font Times Roman
+\usepackage[T1]{fontenc}  %encoding
+\usepackage[inner=4cm,outer=3cm,top=3cm,bottom=3cm]{geometry}%margin
+\usepackage{microtype}    %mencegah underfull
+\usepackage{lipsum}       %untuk dummy text
+\usepackage{abstract}     %manipulasi abstract
+\usepackage{tocloft}	  %format daftar isi 
+\usepackage{tocbibind}    %menambah kata pengantar, daftar isi, gambar, tabel ke daftasr isi
+\usepackage{fancyhdr}	  %mengubah tampilan header & footer
+\usepackage{titlesec}	  %mengubah tamnpilan judul bab
+\usepackage{float} 		  %penempatan gambar di tempat yg seharusnya 
 \usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}% untuk \autoref,\phantomsection & link 
-\usepackage{setspace}%line spacing
+\usepackage{setspace}     %line spacing
 \usepackage[pagewise]{lineno}%line numbering
-\usepackage{emptypage}%halaman kosong antar bab
-\usepackage{graphicx}%untuk graphicspath
-\usepackage{listings}%untuk penulisan source code
-\usepackage{etoolbox}%untuk programming dll
-\usepackage{xstring}%manipulasi string, strchar, ifstreq
+\usepackage{emptypage}    %halaman kosong antar bab
+\usepackage{graphicx}	  %untuk graphicspath
+\usepackage{listings}	  %untuk penulisan source code
+\usepackage{etoolbox}	  %untuk programming dll
+\usepackage{xstring}	  %manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
-\usepackage{pgffor}% untuk foreach
-\usepackage{.sty/digsig}% untuk digital signature
-\usepackage{nomencl} % daftar simbol
+\usepackage{pgffor}		  %untuk foreach
+\usepackage{.sty/digsig}  %untuk digital signature
+\usepackage{nomencl} 	  %daftar simbol
+
+%***Untuk Pakai Natbib***
+%\usepackage{natbib}
+%\bibliographystyle{plainnat}
+
+%****Untuk pakai Biblatex****
+%\usepackage[backend=bibtex, style=authoryear-icomp, %sorting=nyt]{biblatex}
+%	\addbibresource{referensi}	
+%\providetoggle{blx@lang@captions@english}
+%\providetoggle{blx@lang@captions@bahasa}
 
 \newcommand{\vtemplateauthor}{lionov}
-\newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
-\newcommand{\rtext}[1]{{\color{red} \small #1}}%command untuk default text
+\newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}	%command untuk dummy text
+\newcommand{\rtext}[1]{{\color{red} \small #1}}			%command untuk default text
 
-\newcommand{\vmode}{template}  % default mode
+\newcommand{\vmode}{template} 						 	%default mode
 \newtoggle{cekNPM}	 
-%\toggletrue{cekNPM} % aktifkan untuk cek NPM
+%\toggletrue{cekNPM} 									%aktifkan untuk cek NPM
 \newtoggle{develop}	
-%\toggletrue{develop} % aktifkan untuk mode develop
+%\toggletrue{develop} 									%aktifkan untuk mode develop
 
-\graphicspath{{./Gambar/}}% folder tempat gambar 
+\graphicspath{{./Gambar/}}								% folder tempat gambar 
 
 %cek apakah text default
 \newcommand{\vtext}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\rtext{#2}#3}}{\newcommand{#1}{#2}}}
@@ -188,6 +200,7 @@
 
 %untuk url dan link
 \hypersetup{unicode=true,colorlinks=true,linkcolor=blue,citecolor=green,filecolor=magenta, urlcolor=cyan}
+
 %untuk penulisan judul bab
 \titleformat{\chapter}[display] {\Large\bfseries\centering}{\MakeUppercase{\chaptertitlename} \thechapter}{10pt}{\Large\MakeUppercase}
 
@@ -201,7 +214,7 @@
 %setting daftar isi dan daftar lainnya
 \cftsetpnumwidth{25pt}	% perbaikan untuk halaman daftar isi romawi yg overfull
 \renewcommand{\cftchapfont}{\scshape \bfseries} 
-\renewcommand{\cfttoctitlefont}{\vdierror\Large\bfseries\MakeUppercase} 
+\renewcommand{\cfttoctitlefont}{\vdierror\Large\bfseries\MakeUppercase}
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\hfill\Large\bfseries\MakeUppercase} 
 \renewcommand{\cftafterloftitle}{\hfill}
@@ -222,6 +235,7 @@
 	identifierstyle=\color{black}, stringstyle=\color{orange},
 	literate={-}{-}1{-\,-}{--}1
 } 
+
 %\toggletrue{develop} % aktifkan untuk mode develop
 %apakah dalam develop mode ?
 \iftoggle{develop}{ 
@@ -244,41 +258,48 @@
 	\ttd{kosong}
 	\ttddosen{no}
 	\notasi{yes}
-}{\include{data}} 
+}
+
+\include{data} 
 
 %isi dokumen
 \begin{document}
 	
 \raggedbottom
+
+
+%BAGIAN COVER DAN AWAL 
  
 \pagestyle{empty}%tidak ada nomor halaman
-
-\nottoggle{vbimbingan}{
+\nottoggle{vbimbingan}{ %Hanya bagian isi dan lampiran, tidak ada cover/pembuka
 
 	\pagenumbering{roman}
  
 	%cover SAMPUL
 	\begin{center}
 		{\Large \textbf{%
-		\vstaINA\\\vspace{1.5cm}
-		\vjudulINA\\\vspace{2.5cm}
-		\includegraphics{Logo-UNPAR}\\\vspace{3.5cm}
-		\MakeUppercase{\vnama}\\\vspace{0.1cm}
-		NPM: \vnpm\\\vspace{1cm}
-			\ifdefempty{\vpembs}
+			\vstaINA\\\vspace{1.5cm}
+			\vjudulINA\\\vspace{2.5cm}
+			\includegraphics{Logo-UNPAR}\\\vspace{3.5cm}
+			\MakeUppercase{\vnama}\\\vspace{0.1cm}
+			NPM: \vnpm\\\vspace{1cm}
+		\ifdefempty{\vpembs}
 			{\begin{center} Pembimbing : {\vpembu}\ \\\end{center}}
-			{\begin{center}PEMBIMBING : \vpembu \\ \vspace{0.1cm} 
-						KO-PEMBIMBING : \vpembs\ \end{center}}
+			{\begin{center}
+				PEMBIMBING 	  : \vpembu \\ \vspace{0.1cm} 
+				KO-PEMBIMBING : \vpembs\ 
+			\end{center}}
 		\vfill
-		UNIVERSITAS KATOLIK PARAHYANGAN\\
-		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
-		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
-		BANDUNG\\
-		\MakeUppercase{\vbulan}\ \vtahun 
+			UNIVERSITAS KATOLIK PARAHYANGAN\\
+			FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
+			\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
+			BANDUNG\\
+			\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
+	\newpage
 
-\nottoggle{vsidang}{
+\nottoggle{vsidang}{ %Hanya Bagian Isi, Lampiran, dan Cover. Tidak ada kata pengantar, lembar pengesahan, dan abstrak 
 	
 	%cover KERTAS
 	\begin{center}
@@ -288,11 +309,13 @@
 		\includegraphics{Logo-UNPAR}\\\vspace{3.5cm}
 		\MakeUppercase{\vnama}\\\vspace{0.1cm}
 		NPM: \vnpm\\\vspace{1cm}
-			\ifdefempty{\vpembs}
-			{\begin{center} Pembimbing : {\vpembu}\ \\\end{center}}
-			{\begin{center}PEMBIMBING : \vpembu \\ \vspace{0.1cm} 
-						KO-PEMBIMBING : \vpembs\ \end{center}}
-		\vfill
+	\ifdefempty{\vpembs}
+		{\begin{center} Pembimbing : {\vpembu}\ \\\end{center}}
+		{\begin{center}
+			PEMBIMBING 	  : \vpembu \\ \vspace{0.1cm} 
+			KO-PEMBIMBING : \vpembs\ 
+		\end{center}}
+	\vfill
 		UNIVERSITAS KATOLIK PARAHYANGAN\\
 		FAKULTAS TEKNIK JURUSAN TEKNIK SIPIL\\
 		\small (Terakredetasi Berdasarkan SK BAN-PT Nomor:1788/SK/BAN-PT/Akred/S/VII/2018)\\
@@ -300,8 +323,9 @@
 		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
+	\newpage
 
-\nottoggle{vsidangakhir}{	
+\nottoggle{vsidangakhir}{ %Semua ada kecuali lembar pengesahan & pernyataan dan kata pengantar
 
 	% Lembar pengesahan
 	\begin{center}
@@ -340,15 +364,16 @@
 		\MakeUppercase{\vbulan}\ \vtahun 
 		}}
 	\end{center}
+	\newpage
 	
 	% Lembar Pernyataan
 	\begin{center} 
 		{\Large \textbf{PERNYATAAN}\\} \vspace{1cm}
 	\end{center}
 	\begin{flushleft}
-	Saya yang bertandatangan di bawah ini, menyatakan bahwa: \\\vspace{0.2cm}
-	Nama Lengkap : \vnama \\\vspace{0.2cm}
-	NPM \hspace{1.65cm}: \vnpm \\\vspace{0.2cm}
+Saya yang bertandatangan di bawah ini, menyatakan bahwa: \\\vspace{0.2cm}
+Nama Lengkap : \vnama \\\vspace{0.2cm}
+NPM \hspace{1.65cm}: \vnpm \\\vspace{0.2cm}
 Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah karya ilmiah yang bebas dari plagiat. Jika kemudian hari terbukti terdapat plagiat dalam skripsi ini, maka saya bersedia menerima sanksi sesuai dengan peraturan perundang - undangan yang berlaku. \\
 	\vspace{0.25cm}
 	\end{flushleft}
@@ -371,7 +396,7 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah kar
 	\end{flushright}
 	 \cleardoublepage 
 
-}{} %vsidangakhir	
+}{}%vsidangakhir	
 
 	% Abstrak & Abstract
 	\begin{center}
@@ -441,10 +466,9 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah kar
 		\vnama \\
 		\vnpm
 	\end{flushright}	
-	\newpage	
+	\newpage
 }{}%vsidangakhir
-
-}{} %vsidang 
+}{}%vsidang
 
 \tableofcontents \cleardoublepage 							% Daftar isi
 \IfStrEq{\vgambar}{yes}{\listoffigures \cleardoublepage}{} 	% Daftar gambar
@@ -452,36 +476,46 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah kar
 \IfStrEq{\vkode}{yes}{
     \lstlistoflistings \addcontentsline{toc}{chapter}{Daftar Kode Program}
     \cleardoublepage}{} % Daftar kode 
-\IfStrEq{\vnotasi}{yes}{    
+\IfStrEq{\vnotasi}{yes}{
     \setlength{\nomitemsep}{-\parsep}
-    \printnomenclature 
+    \printnomenclature
     \addcontentsline{toc}{chapter}{Daftar Notasi}
     \cleardoublepage}{} % Daftar notasi 
 }{} %vbimbingan
 
-\pagenumbering{arabic} %nomor halaman 
 
-\appspacing%apply spacing
-\appline%apply line number
+%BAGIAN ISI
+%setting halaman bab
+\pagenumbering{arabic} 	%nomor halaman 
+\appspacing				%apply spacing
+\appline				%apply line number
+\setpagewiselinenumbers %supaya reset ke 1 di setiap halaman
+\pagestyle{fancy}		%header 
 
-\setpagewiselinenumbers  %supaya reset ke 1 di setiap halaman
- 
-\pagestyle{fancy}%header 
-
-%include bab 
+%include bab
 \foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
 
+
+%BAGIAN REFERENSI DAN LAMPIRAN
 %update nama daftar referensi
 \renewcommand{\bibname}{Daftar Referensi}
+\onehalfspacing								%selalu single spacing untuk lampiran dan daftar referensi
+\nolinenumbers								%tidak ada line number untuk lampiran dan daftar referensi
+\bibliographystyle{.sty/compj} 				%gunakan compj 
+\def\bibindent{1cm}
+\makeatletter
+\let\old@biblabel\@biblabel
+\def\@biblabel#1{\old@biblabel{#1}\kern\bibindent}
+\let\old@bibitem\bibitem
+\def\bibitem#1{\old@bibitem{#1}\leavevmode\kern-\bibindent}
+\renewcommand\@biblabel[1]{}
+\makeatother
+\bibliography{referensi}					%include 
 
-\singlespacing%selalu single spacing untuk lampiran dan daftar referensi
+%***Untuk pakai Biblatex***
+%\printbibliography
 
-\nolinenumbers%tidak ada line number untuk lampiran dan daftar referensi
-
-\bibliographystyle{.sty/compj} %gunakan compj 
-\bibliography{referensi}
-
-\appendix%Penomoran lampiran dengan huruf  
+\appendix									%Penomoran lampiran dengan huruf  
 
 %include lampiran
 \foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i} \IfFileExists{\vfile}{\include{\vfile}}} 
