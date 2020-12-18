@@ -36,28 +36,30 @@
 %   - penambahan daftar notasi
 %
 % Perubahan pada versi 13_ft:
-%   - Perubahan format judul menjadi format FT
+%   - Perubahan format judul menjadi format FT TS
 %   - Perubahan format penulisan abstrak
 %   - Menghilangkan bagian persembahan
+%   - Perubahan format penomoran halaman bab, daftar pustaka, dan lampiran
+%   - Perubahan bentuk heading
 %_____________________________________________________________________________
 %=============================================================================
 
 %PREAMBULE
 
-\documentclass[11pt,a4paper,twoside,openright,notitlepage]{report}  
+\documentclass[11pt,a4paper,oneside,openright,notitlepage]{report}  
 \usepackage[bahasa]{babel}%bahasa indonesia
-%\usepackage{lmodern}     %font latin modern
-\usepackage{mathptmx}     %font Times Roman
-\usepackage[T1]{fontenc}  %encoding
+%\usepackage{lmodern}   %font latin modern
+\usepackage{mathptmx}   %font Times Roman
+\usepackage[T1]{fontenc}%encoding
 \usepackage[inner=4cm,outer=3cm,top=3cm,bottom=3cm]{geometry}%margin
-\usepackage{microtype}    %mencegah underfull
-\usepackage{lipsum}       %untuk dummy text
-\usepackage{abstract}     %manipulasi abstract
+\usepackage{microtype}  %mencegah underfull
+\usepackage{lipsum}     %untuk dummy text
+\usepackage{abstract}   %manipulasi abstract
 \usepackage{tocloft}	  %format daftar isi 
-\usepackage{tocbibind}    %menambah kata pengantar, daftar isi, gambar, tabel ke daftasr isi
+\usepackage{tocbibind}  %menambah kata pengantar, daftar isi, gambar, tabel ke daftasr isi
 \usepackage{fancyhdr}	  %mengubah tampilan header & footer
 \usepackage{titlesec}	  %mengubah tamnpilan judul bab
-\usepackage{float} 		  %penempatan gambar di tempat yg seharusnya 
+\usepackage{float} 	  %penempatan gambar di tempat yg seharusnya 
 \usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}% untuk \autoref,\phantomsection & link 
 \usepackage{setspace}     %line spacing
 \usepackage[pagewise]{lineno}%line numbering
@@ -132,9 +134,9 @@
 	\IfStrEqCase{#2}{%ubah angka bulan menjadi kata
 		{0}{\renewcommand{\vbulan}{<<bulan>>}}
 		{1}{\renewcommand{\vbulan}{Januari}}	{2}{\renewcommand{vbulan}{Februari}}	
-		{3}{\renewcommand{\vbulan}{Maret}}		{4}{\renewcommand{vbulan}{April}}	
+		{3}{\renewcommand{\vbulan}{Maret}}	{4}{\renewcommand{vbulan}{April}}	
 		{5}{\renewcommand{\vbulan}{Mei}}		{6}{\renewcommand{vbulan}{Juni}}		
-		{7}{\renewcommand{\vbulan}{Juli}}		{8}{\renewcommand{vbulan}{Agustus}}	
+		{7}{\renewcommand{\vbulan}{Juli}}	{8}{\renewcommand{vbulan}{Agustus}}	
 		{9}{\renewcommand{\vbulan}{September}}	{10}{\renewcommand{vbulan}{Oktober}}
 		{11}{\renewcommand{\vbulan}{November}}	{12}{\renewcommand{vbulan}{Desember}}
 	[]}
@@ -175,7 +177,7 @@
 \newcommand{\notasi}[1]{\newcommand{\vnotasi}{#1}}
 \edef\vbab{1,2,3,4,5,6,7,8,9}
 \newcommand{\bab}[1]{\IfStrEq{#1}{all}{}{\IfStrEq{\vmode}{bimbingan}{\edef\vbab{#1}}{}}}
-\edef\vlamp{A,B,C,D,E,F,G,H,I}
+\edef\vlamp{L1,L2,L3,L4,L5,L6,L7,L8,L9}
 \newcommand{\lampiran}[1]{\IfStrEq{\vmode}{bimbingan}{\IfStrEq{#1}{all}{}
 		{\IfStrEq{#1}{none}{\edef\vlamp{}}{\edef\vlamp{#1}}}}{}}
 \newcommand{\ttd}[1]{\newcommand{\vttd}{#1}}
@@ -191,11 +193,12 @@
 \newcommand{\appline}{\IfStrEqCase{\vmode}{{sidang}{\vlineyes}{sidangakhir}{\vlineyes}{bimbingan}{\IfStrEq{\vlinenum}{yes}{\vlineyes}{}}[]}}
  
 %header
-\renewcommand\headrule{\hrule width \hsize height 0.25 pt \kern 2 pt \hrule width \hsize height 1.25pt}
-\setlength{\headheight}{17.25pt}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\small{\textsc{\nouppercase{\leftmark}}}}
-\fancyhead[LO]{\small{\textsc{\nouppercase{\rightmark}}}}
+\renewcommand\headrule{}
+%\setlength{\headheight}{17.25pt}
+\fancyhead[RE,RO]{\thepage}
+\fancyhead[LE,LO]{\textsc{}}
+%\fancyhead[RE]{\small{\textsc{\nouppercase{\leftmark}}}}
+%\fancyhead[LO]{\small{\textsc{\nouppercase{\rightmark}}}}
 \fancyfoot{}
 
 %untuk url dan link
@@ -481,24 +484,30 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah kar
     \printnomenclature
     \addcontentsline{toc}{chapter}{Daftar Notasi}
     \cleardoublepage}{} % Daftar notasi 
+\newcounter{savepage}
+\setcounter{savepage}{\value{page}}
+\cleardoublepage
 }{} %vbimbingan
 
 
 %BAGIAN ISI
 %setting halaman bab
-\pagenumbering{arabic} 	%nomor halaman 
-\appspacing				%apply spacing
+\pagenumbering{arabic} 	%nomor halaman
+\appspacing			%apply spacing
 \appline				%apply line number
-\setpagewiselinenumbers %supaya reset ke 1 di setiap halaman
-\pagestyle{fancy}		%header 
+\setpagewiselinenumbers 	%supaya reset ke 1 di setiap halaman
+\pagestyle{fancy}		%header
+
 
 %include bab
-\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
+\foreach \i in \vbab {\edef\vfile{Bab/bab\i} \setcounter{page}{1} \renewcommand{\thepage}{\i\hspace{1pt}-\arabic{page}} \IfFileExists{\vfile}{\include{\vfile}}} 
 
 
 %BAGIAN REFERENSI DAN LAMPIRAN
 %update nama daftar referensi
 \renewcommand{\bibname}{Daftar Referensi}
+\pagenumbering{roman}
+\setcounter{page}{\value{savepage}}
 \onehalfspacing								%selalu single spacing untuk lampiran dan daftar referensi
 \nolinenumbers								%tidak ada line number untuk lampiran dan daftar referensi
 \bibliographystyle{.sty/compj} 				%gunakan compj 
@@ -511,13 +520,13 @@ Dengan ini menyatakan bahwa \vstaINA\ saya yang berjudul: \vjudulINA\ adalah kar
 \renewcommand\@biblabel[1]{}
 \makeatother
 \bibliography{referensi}					%include 
-
+\cleardoublepage
 %***Untuk pakai Biblatex***
 %\printbibliography
 
 \appendix									%Penomoran lampiran dengan huruf  
 
 %include lampiran
-\foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i} \IfFileExists{\vfile}{\include{\vfile}}} 
+\foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i}  \setcounter{page}{1} \renewcommand{\thepage}{\i\hspace{1pt}-\arabic{page}} \IfFileExists{\vfile}{\include{\vfile}}}
 
 \end{document}
