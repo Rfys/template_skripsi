@@ -1,7 +1,7 @@
-Template Project Skripsi
-========================
+Template Project Tulisan Ilmiah
+===============================
 
-Silahkan menggunakan (fork) template skripsi ini sebagai dasar dari skripsi
+Silahkan menggunakan (fork) template ini sebagai dasar dari skripsi/tesis/disertasi
 Anda.
 
 Catatan:
@@ -13,19 +13,19 @@ Catatan:
 Informasi Untuk Rekan - Rekan FT-Teknik Sipil
 =============================================
 
-Repositori ini adalah gubahan dari repositori ftisunpar/skripsi yang berisi template skripsi milik FTIS.
-Jika ingin menggunakan dokumen ini, **silahkan menghubungi dosen FTIS yang bersangkutan**.
-Sampai dokumen README ini dibuat, dosen yang bersangkutan adalah : Lionov Wiratma, Ph.D <<lionov@unpar.ac.id>>
+Repositori ini adalah gubahan dari repositori ftisunpar/skripsi copyright@ 2020 Lionov <<lionov@unpar.ac.id>> yang berisi template skripsi/tesis/disertasi
+Teknik Sipil Unpar. 
 
 Gubahan ini dilakukan oleh : Arif Yunando S (2017410211) <<arifyunando@gmail.com>> 
-Untuk pertanyaan seputar template, dapat menghubungi email saya seperti yang tertera.
+Untuk pertanyaan dan laporan bug seputar template, dapat menghubungi email saya seperti yang tertera.
 
 Untuk peraturan mengenai formating lebih jelas. Silahkan merujuk pada dokumen
 "Standar Operasional Prosedur dan Pedoman Penulisan Skripsi" oleh Prodi Teknik Sipil yang terdapat pada website TS Unpar
+
+Untuk preview format yang tersedia saat ini, silahkan masuk ke folder DokumenTemplate dan buka file skripsi.pdf
 
 Further Development
 =====================
 
 1. Ganti dummy text dengan isi yang lebih relevan
-2. Ganti header style
-3. Ganti page numbering system
+2. Membuat sistem seleksi jenjang pendidikan
